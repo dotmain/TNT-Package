@@ -10,7 +10,10 @@ import UIKit
 /// The TableCanvasController class provides the infrastructure for managing the table views of your iOS apps.
 open class TableCanvasController: UITableViewController {
     
-    required public init?(coder: NSCoder) { super.init(style: .grouped) }
+    required public init?(coder: NSCoder) {
+        super.init(style: .grouped)
+        tableView.rowHeight = UITableView.automaticDimension
+    }
     
     /// Called after the controller's view is loaded into memory.
     ///
@@ -23,6 +26,7 @@ open class TableCanvasController: UITableViewController {
         ShapeLayer.disableActions = true
         self.setup()
         ShapeLayer.disableActions = false
+        
     }
 
     /// Called during the controller's `viewDidLoad()` method.
